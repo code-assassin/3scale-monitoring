@@ -15,7 +15,7 @@ $ oc login -u system:admin
 ```
 2. Install the custom resource definitions necessary for running the Prometheus operator.
 ```
-$ oc create -f 3scale-prometheus-operator.yml
+$ oc create -f 3scale-prometheus-crd.yml
 ```
 3. Install the Prometheus operator to your namespace by using the following command syntax.
 ```
