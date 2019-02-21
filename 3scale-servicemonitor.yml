@@ -60,7 +60,7 @@ objects:
       app: ${APICAST_STAGING_SERVICE_NAME}
   spec:
     selector:
-      app: ${APICAST_STAGING_SERVICE_NAME}
+      deploymentConfig: ${APICAST_STAGING_SERVICE_NAME}
     ports:
     - name: ${APICAST_STAGING_PORT}
       port: 9421
