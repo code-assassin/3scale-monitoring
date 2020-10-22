@@ -1,0 +1,8 @@
+oc create -f 3scale-prometheus-crd.yml
+
+oc adm policy add-scc-to-user anyuid -z prometheus-operator
+oc adm policy add-scc-to-user anyuid -z prometheus
+
+oc process -f 3scale-prometheus-operator.yml -p NAMESPACE=3scale | oc create -f -
+
+oc process -f 3scale-servicemonitor.yml -p NAMESPACE=3scale APICAST_STAGING_SERVICE_NAME=apicast-production | oc apply -f -
