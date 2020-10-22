@@ -26,6 +26,7 @@ For example, use this command for a project (namespace) named 3scale-v24:
 $ oc process -f 3scale-prometheus-operator.yml -p NAMESPACE=3scale-v24 | oc create -f -
 ```
 Note: The first time that you install the Prometheus operator into a namespace, it might take a few minutes for the Prometheus resource pods to start. Subsequently, if you install it to other namespaces on your cluster, the Prometheus resource pods start much faster.
+
 4. Add SCC anyuid to ServiceAccount promotheus and promotheus-operator
 ```
 oc adm policy add-scc-to-user anyuid -z prometheus-operator
