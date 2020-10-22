@@ -16,7 +16,7 @@ message: |-
 parameters:
 - name: NAMESPACE
   displayName: Namespace
-  value: 3scale-v24
+  value: 3scale
   required: true
   description: Namespace in which the prometheus-operator is installed.
 - name: APICAST_STAGING_SERVICE_NAME
@@ -34,9 +34,6 @@ parameters:
   required: true
 
 objects:
-#
-# OpenShift resources
-#
 - apiVersion: monitoring.coreos.com/v1 
   kind: ServiceMonitor
   metadata:
@@ -44,6 +41,9 @@ objects:
     namespace: ${NAMESPACE}
     labels:
       team: ${APICAST_STAGING_SERVICE_TEAM}
+      app: 3scale-api-management
+      threescale_component: apicast
+      threescale_component_element: production
   spec:
     selector:
       matchLabels:
